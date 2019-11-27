@@ -1,0 +1,7 @@
+.ColorSq {
+  width: 10%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
