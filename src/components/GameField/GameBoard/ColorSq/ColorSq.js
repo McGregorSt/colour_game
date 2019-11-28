@@ -8,7 +8,7 @@ return (
     x={x} 
     y={y} 
     style={{'background': `${color}`}} 
-    value={value}
+    // value={value}
     onClick={clicked}
     data-value={value}
     data-color={color}
