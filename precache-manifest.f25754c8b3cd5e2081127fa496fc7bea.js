@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a5efe2a9f4ddebcf823bf66651f41faa",
+    "revision": "584e420518fc33ad7d8e840b138f9f6c",
     "url": "/colour_game/index.html"
   },
   {
-    "revision": "edf55dc2fa32d73af7d5",
+    "revision": "f23d09cf97eaf1913076",
     "url": "/colour_game/static/css/main.c05b3f14.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/colour_game/static/js/2.433ad013.chunk.js"
   },
   {
-    "revision": "edf55dc2fa32d73af7d5",
-    "url": "/colour_game/static/js/main.b64956c6.chunk.js"
+    "revision": "f23d09cf97eaf1913076",
+    "url": "/colour_game/static/js/main.70c73759.chunk.js"
   },
   {
     "revision": "100bb8b143cb25623492",
