@@ -32,7 +32,6 @@ export const squaresToRegenerate = toRegenerate => {
 
 const colorGenerator = colors => {
   let random = Math.ceil(Math.random() * 5)
-  console.log(random)
   return `#${colors[random - 1]}`
 }
 

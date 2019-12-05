@@ -7,7 +7,6 @@ import PointsCounter from './PointsCounter/PointsCounter'
 
 class GameField extends Component {
   render() {
-    console.log(this.props.counter)
     return (
       <div className={classes.GameField}>
         <GameBoard />

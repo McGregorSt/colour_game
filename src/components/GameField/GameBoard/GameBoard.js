@@ -11,9 +11,6 @@ class GameBoard extends Component {
   }
 
   render() {
-    const board = this.props.board
-    console.log('board', board)
-
     let renderBoard = this.props.board.map((sq, id) => {
       return (
         <ColorSq
