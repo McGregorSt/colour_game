@@ -9,15 +9,7 @@ class GameBoard extends Component {
 
   componentDidMount() {
     this.props.onGenerateBoard()
-    // this.props.onCheckNeighbours(this.props.board)
   }
-  
-  // onClickHandler = (ev) => {
-  //   let dataValue = ev.target.dataset.value
-  //   let dataColor = ev.target.dataset.color
-    
-  //   return console.log(parseInt(dataValue), dataColor)
-  // }
 
   render() {
     const board = this.props.board
@@ -43,7 +35,8 @@ class GameBoard extends Component {
 
 const mapStateToProps = state => {
   return {
-    board: state.board
+    board: state.board,
+    neighbours: state.neighbours
   }
 }
 const mapDispatchToProps = dispatch => {

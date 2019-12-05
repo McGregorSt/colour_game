@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import GameBoard from './GameBoard/GameBoard'
-import classes from './GameField.css'
+import GameBoard from "./GameBoard/GameBoard";
+import classes from "./GameField.css";
+import PointsCounter from "./PointsCounter/PointsCounter";
 
-const GameField = () => {
-  return <div classes={classes.GameField}>
-    <GameBoard />
-  </div>
+class GameField extends Component {
+  render() {
+    console.log(this.props.counter);
+    return (
+      <div className={classes.GameField}>
+        <GameBoard />
+        <PointsCounter counter={this.props.counter} />
+      </div>
+    );
+  }
 }
- 
-export default GameField
+
+const mapStateToProps = state => {
+  return {
+    counter: state.counter
+  };
+};
+
+export default connect(mapStateToProps)(GameField);

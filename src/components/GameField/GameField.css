@@ -1,6 +1,5 @@
 .GameField {
   margin: auto;
   height: 700px;
-  border: 1px solid #000;
-
+  margin-top: 200px;
 }

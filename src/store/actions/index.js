@@ -1,4 +1,6 @@
 export {
   generateBoard,
-  checkNeighbours
+  checkNeighbours,
+  squaresToMove,
+  squaresToRegenerate
 } from './actions'

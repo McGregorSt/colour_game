@@ -1,0 +1,21 @@
+.PointsCounter {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+
+}
+.EmptyDiv {
+  width: 30%;
+}
+.Points {
+  width: 70%;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.Points strong {
+  font-size: 28px;
+  font-weight: 800;
+  padding: 0 0 0 15px;
+}
