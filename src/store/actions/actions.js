@@ -151,8 +151,7 @@ export const checkNeighbours = (ev, board) => {
 
     dispatch(squaresToMove(toMove))
 
-    const toEmpty = []
-
+    
     const howFar = square => {
       const entries = Object.entries(yCount)
       for (let [y, count] of entries) {
@@ -161,71 +160,51 @@ export const checkNeighbours = (ev, board) => {
         }
       }
     }
-
-    // console.log('distinct', distinctToMove)
-    const modDistinctToMove = []
     
+    // console.log('distinct', distinctToMove)
+    const toEmpty = []
+    const modifiedToMove = []
+
     toMove.forEach(elm => {
       let drop = howFar(elm)
       toEmpty.push(drop)
-      console.log('drop', drop, elm)
       let newCorX = elm.corX + drop
-      modDistinctToMove.push({
+      modifiedToMove.push({
         corX: newCorX,
         corY: elm.corY,
         color: elm.color,
-        // id: elm.id
       })
     })
 
-    console.log('empty', toEmpty)
-    console.log('MFMM', modDistinctToMove)
+    // console.log('empty', toEmpty)
+    // console.log('MFMM', modifiedToMove)
+    // console.log('toMove', toMove)
 
-    let newRegeneratedSquares = []
+    // let newRegeneratedSquares = []
 
-    // const randomColor = colorGenerator(colors)
+    console.log('mtm', modifiedToMove)
 
-    console.log('toMove', toMove)
-
-    const generateNewSq = (square, drop) => {
-      // debugger
-      if (modDistinctToMove.length || drop > 0) {
-        for (let i = 0; i < drop; i++) {
-          console.log('here')
-          newRegeneratedSquares.push({
-            corX: i,
-            corY: square.corY,
-
-            // id: `${i}${square.corY}`
-          })
-        }
-
-        // toDelete.forEach(elm => {
-        //   newRegenerateSquares.push({
-        //     corX: elm.corX,
-        //     corY: elm.corY,
-        //     color: '',
-        //     id: elm.id
-        //   })
-        // })
-        return newRegeneratedSquares
-      } else {
-        // debugger
-        console.log('here2')
-        newRegeneratedSquares = toDelete
-        return newRegeneratedSquares
-      }
-    }
-
-    console.log('nrs', newRegeneratedSquares)
-
-    let filteredNewRegenerated = newRegeneratedSquares.filter(
-      (val, ind, arr) => arr.indexOf(val) === ind
-    )
-    console.log('fnnr', filteredNewRegenerated)
-
+    // const generateNewSq = (square, drop) => {
+    //   if (modifiedToMove.length > 0) {
+    //     for (let i = 0; i < drop; i++) {
+    //       newRegeneratedSquares.push({
+    //         corX: i,
+    //         corY: square.corY,
+    //       })
+    //     }
+    //     return newRegeneratedSquares
+    //   } else {
+    //     newRegeneratedSquares = [...toDelete]
+    //     return newRegeneratedSquares
+    //   }
+    // }
+    // console.log('toDel', toDelete)
+    // console.log('nrs', newRegeneratedSquares)
+    
+    
+    
     board.map(elm =>
-      modDistinctToMove.forEach(el => {
+      modifiedToMove.forEach(el => {
         if (elm.corX === el.corX && elm.corY === el.corY) {
           elm.color = el.color
         }
@@ -269,16 +248,30 @@ export const checkNeighbours = (ev, board) => {
       })
     })
 
-    toDelete.forEach((elm, ind) => {
-      let searchedInd = board.indexOf(elm)
-      let newInsert = generateNewSq(elm, yCount[elm.corY])
-      console.log('blabla', elm, modDistinctToMove[ind], newInsert[ind])
-      // board.splice(searchedInd, 1, newInsert[ind])
-    })
+    // toDelete.forEach((elm, ind) => {
+    //   let searchedInd = board.indexOf(elm)
+    //   let newInsert = generateNewSq(elm, yCount[elm.corY])
+    //   console.log('blabla', elm, modifiedToMove[ind], newInsert[ind])
+    //   // board.splice(searchedInd, 1, newInsert[ind])
+    // })
+
+    // console.log('nrs22222222', newRegeneratedSquares)
+    // let filteredNewRegenerated = newRegeneratedSquares.filter((val, ind, arr) => arr.indexOf(val) === ind)
+
+
+    // newRegeneratedSquares.forEach((elm, ind, arr) => {
+    //   console.log('boom')
+    //   if (arr.indexOf(elm) === -1) {
+    //     console.log('compare')
+    //     filteredNewRegenerated.push(elm)
+    //   }
+    // })
+    // console.log('fnnr', filteredNewRegenerated)
+
 
     board.sort((a, b) => a.corY - b.corY).sort((a, b) => a.corX - b.corX)
 
-    dispatch(squaresToRegenerate(newRegeneratedSquares))
+    dispatch(squaresToRegenerate(newSquares))
   }
 }
 
