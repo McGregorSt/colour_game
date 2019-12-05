@@ -6,7 +6,6 @@ import classes from './GameBoard.css'
 import * as actions from '../../../store/actions/index'
 
 class GameBoard extends Component {
-
   componentDidMount() {
     this.props.onGenerateBoard()
   }
@@ -14,36 +13,36 @@ class GameBoard extends Component {
   render() {
     const board = this.props.board
     console.log('board', board)
-    
+
     let renderBoard = this.props.board.map((sq, id) => {
-      return <ColorSq 
-        key={id} 
-        x={sq.corX} 
-        y={sq.corY} 
-        color={sq.color} 
-        value={id} 
-        clicked={(ev) => this.props.onCheckNeighbours(ev, this.props.board)}/>
+      return (
+        <ColorSq
+          key={id}
+          x={sq.corX}
+          y={sq.corY}
+          color={sq.color}
+          value={id}
+          clicked={ev => this.props.onCheckNeighbours(ev, this.props.board)}
+        />
+      )
     })
-    
-    return (
-      <div className={classes.GameBoard}>
-        {renderBoard}
-      </div>
-    ) 
+
+    return <div className={classes.GameBoard}>{renderBoard}</div>
   }
 }
 
 const mapStateToProps = state => {
   return {
     board: state.board,
-    neighbours: state.neighbours
+    neighbours: state.neighbours,
   }
 }
 const mapDispatchToProps = dispatch => {
   return {
     onGenerateBoard: () => dispatch(actions.generateBoard()),
-    onCheckNeighbours: (ev, board) => dispatch(actions.checkNeighbours(ev, board))
+    onCheckNeighbours: (ev, board) =>
+      dispatch(actions.checkNeighbours(ev, board)),
   }
 }
- 
-export default connect(mapStateToProps, mapDispatchToProps) (GameBoard)
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameBoard)
